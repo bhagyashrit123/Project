@@ -30,10 +30,8 @@ public class Testconfig {
 				 driver = new ChromeDriver();
 			}else
 				if(browsername.equalsIgnoreCase("EdgeDriver")){
-					System.out.println("browsername---11111111--------"+browsername);
 					WebDriverManager.edgedriver().setup();
-					System.out.println("browsername---2222222--------"+browsername);
-					 driver= new EdgeDriver();
+					driver= new EdgeDriver();
 			}else {
 				
 			}
@@ -44,7 +42,6 @@ public class Testconfig {
 			String woman_xpath=per.getProperty("woman_xpath");
 			//System.out.println("woman_xpath----"+woman_xpath); 
 			WebElement mainMenu = driver.findElement(By.xpath(woman_xpath));
-			System.out.println("mainMenu----"+mainMenu); 
 			actions.moveToElement(mainMenu).perform();
 			driver.manage().window().maximize();
 			//Thread.sleep(4000);
