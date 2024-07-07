@@ -15,7 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Testconfig {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		try {
 			
 			Properties per=new Properties();
@@ -23,7 +23,6 @@ public class Testconfig {
 			per.load(fi);
 			WebDriver driver=null;
 			String browsername=per.getProperty("BROWSER");
-			System.out.println("browsername-----------"+browsername);
 			if(browsername.equalsIgnoreCase("ChromeBrowser"))
 			{
 				WebDriverManager.chromedriver().setup();
@@ -31,7 +30,8 @@ public class Testconfig {
 			}else
 				if(browsername.equalsIgnoreCase("EdgeDriver")){
 					WebDriverManager.edgedriver().setup();
-					driver= new EdgeDriver();
+					
+					 driver= new EdgeDriver();
 			}else {
 				
 			}
@@ -40,20 +40,20 @@ public class Testconfig {
 			Thread.sleep(2000);
 			Actions actions = new Actions(driver);
 			String woman_xpath=per.getProperty("woman_xpath");
-			//System.out.println("woman_xpath----"+woman_xpath); 
+			
 			WebElement mainMenu = driver.findElement(By.xpath(woman_xpath));
+			
 			actions.moveToElement(mainMenu).perform();
 			driver.manage().window().maximize();
-			//Thread.sleep(4000);
+			
 			String top_linktext=per.getProperty("Top");
 			WebElement top=driver.findElement(By.linkText(top_linktext));
 			actions.moveToElement(top).perform();
-			//Thread.sleep(4000);
+			
 			String jacket_linktext=per.getProperty("Jacket");
 			WebElement jacket=driver.findElement(By.linkText(jacket_linktext));
 			actions.moveToElement(jacket).click().build().perform();
-	
-			driver.manage().window().maximize();
+				driver.manage().window().maximize();
 			String img_link=per.getProperty("image_link");
 			WebElement imglink=driver.findElement(By.xpath(img_link));
 			imglink.click();
